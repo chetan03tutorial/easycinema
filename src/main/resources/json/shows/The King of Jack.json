@@ -1,0 +1,25 @@
+{
+  "eventId": 92001,
+  "auditoriumId": 21001,
+  "currencyCode": "INR",
+  "pricing": {
+    "silver": 340,
+    "gold": 400,
+    "platinum": 500
+  },
+  "capacities":
+  [
+    {
+      "code" : "PLATINUM",
+      "capacity": 10
+    },
+    {
+      "code" : "GOLD",
+      "capacity": 10
+    },
+    {
+      "code" : "SILVER",
+      "capacity": 10
+    }
+  ]
+}
