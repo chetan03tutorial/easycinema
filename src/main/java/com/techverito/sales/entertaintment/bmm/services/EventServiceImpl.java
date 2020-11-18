@@ -22,7 +22,8 @@ public class EventServiceImpl implements EventService{
     }
 
     public Event getEventDetails(Long eventId){
-        return eventRepository.get(e -> eventId.equals(e.getId()))
+        return eventRepository.get(e -> eventId.equals(e.getId())).stream()
+                .findFirst()
                 .orElseThrow(() -> new NotFoundException(String.format(EVENT_NOT_FOUND, eventId)));
     }
 

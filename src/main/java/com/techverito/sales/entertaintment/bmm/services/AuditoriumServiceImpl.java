@@ -18,6 +18,8 @@ public class AuditoriumServiceImpl implements AuditoriumService {
 
     public Auditorium getAuditorium(Long auditoriumId){
         return auditoriumRepository.get(an -> auditoriumId.equals(an.getId()))
+                .stream()
+                .findFirst()
                 .orElseThrow(() -> new NotFoundException(String.format(AUDITORIUM_NOT_FOUND , auditoriumId)));
     }
 

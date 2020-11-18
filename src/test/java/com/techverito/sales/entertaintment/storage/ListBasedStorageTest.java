@@ -29,8 +29,8 @@ public class ListBasedStorageTest {
 
     @Test
     public void test_save_and_get(){
-        listBaseStorage.save(new Object());
-        listBaseStorage.save(new Object());
+        listBaseStorage.save(new Object(),null);
+        listBaseStorage.save(new Object(),null);
         assertEquals(2,listBaseStorage.list().size());
     }
 }

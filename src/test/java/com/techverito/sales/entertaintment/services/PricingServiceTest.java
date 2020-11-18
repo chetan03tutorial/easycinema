@@ -38,7 +38,7 @@ public class PricingServiceTest extends BaseBmmTest {
 
         costingRepository = mock(CostingRepository.class);
         taxService = mock(TaxService.class);
-        pricingService = new PricingServiceImpl(costingRepository,taxService);
+        pricingService = new PricingServiceImpl(costingRepository);
     }
 
     @Test

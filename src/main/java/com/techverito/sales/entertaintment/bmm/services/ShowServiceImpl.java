@@ -32,7 +32,8 @@ public class ShowServiceImpl implements ShowService {
     }
 
     public Show getShow(Long showId){
-        return showRepository.get(sd -> sd.getShowId().equals(showId))
+        return showRepository.get(sd -> sd.getShowId().equals(showId)).stream()
+                .findFirst()
                 .orElseThrow(() -> new NotFoundException(String.format(SHOW_NOT_FOUND, showId)));
     }
 

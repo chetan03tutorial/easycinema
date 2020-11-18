@@ -1,9 +1,9 @@
 package com.techverito.sales.entertaintment.bmm.services.taxation;
 
 abstract public class AbstractTaxCalculator implements  TaxCalculator{
-    private String name;
-    private String code;
-    private Double rate;
+    private final String name;
+    private final String code;
+    private final Double rate;
 
     public Double getTaxRate(){
         return rate;

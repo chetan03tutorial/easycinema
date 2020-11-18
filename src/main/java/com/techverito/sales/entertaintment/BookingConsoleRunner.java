@@ -73,7 +73,7 @@ public class BookingConsoleRunner {
         paymentGateway = new IBPaymentGateway();
         paymentService = new PaymentServiceImpl(paymentGateway,userInputReader);
         taxService = new TaxService(Arrays.asList(new ServiceTaxCalculator(), new KrishiKalyanTaxCalculator(), new SwachBharatTaxCalculator()));
-        pricingService = new PricingServiceImpl(pricingRepository, taxService);
+        pricingService = new PricingServiceImpl(pricingRepository);
         eventService = new EventServiceImpl(eventRepository);
         auditoriumService = new AuditoriumServiceImpl(auditoriumRepository);
         showService = new ShowServiceImpl(showRepository);

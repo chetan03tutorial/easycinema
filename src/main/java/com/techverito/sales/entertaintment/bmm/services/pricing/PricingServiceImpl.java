@@ -18,11 +18,9 @@ public class PricingServiceImpl implements PricingService{
 
     private final CostingRepository costingRepository;
 
-    private final TaxService taxService;
 
-    public PricingServiceImpl(CostingRepository costingRepository, TaxService taxService) {
+    public PricingServiceImpl(CostingRepository costingRepository) {
         this.costingRepository = costingRepository;
-        this.taxService = taxService;
     }
 
     /*public Double calculateTaxAmount(Double mrp){
@@ -37,15 +35,12 @@ public class PricingServiceImpl implements PricingService{
      * @return Cost of the selected seats based on customer selection
      */
     public Double calculateSittingCost(Long showId, Map<SeatType,Long> seatCount){
-        //Map<SeatType,Long> seatMap = new HashMap<>();
-        //seatCount.forEach((k,v) -> seatMap.put(SeatType.valueOf(k.toUpperCase()),v));
         Costing costing = costingRepository.getCostByShowId(showId);
         Map<SeatType,Double> priceTable = costing.getPricing();
-        return seatCount.entrySet().stream()
+        return seatCount.entrySet()
+                .stream()
                 .mapToDouble(e ->  priceTable.get(e.getKey()) * e.getValue())
                 .sum();
-        //System.out.println("Subtotal: " + mrp);
-
     }
 
     /*This is the method which need to be exposed in real life to

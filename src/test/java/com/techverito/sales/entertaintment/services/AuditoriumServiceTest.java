@@ -9,6 +9,7 @@ import com.techverito.sales.entertaintment.bmm.util.FileReader;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -48,7 +49,7 @@ public class AuditoriumServiceTest extends BaseBmmTest {
     public void get_auditorium_details(){
         Auditorium.AuditoriumBuilder builder  = new Auditorium.AuditoriumBuilder();
         Auditorium expected = builder.name("AUDITORIUM-1").build();
-        when(auditoriumRepository.get(any(Predicate.class))).thenReturn(Optional.of(expected));
+        when(auditoriumRepository.get(any(Predicate.class))).thenReturn(Arrays.asList(expected));
         Auditorium actual = auditoriumService.getAuditorium((long)1000);
         assertEquals(actual.getName(),expected.getName());
     }

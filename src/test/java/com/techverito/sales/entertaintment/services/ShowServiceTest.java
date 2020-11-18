@@ -40,7 +40,7 @@ public class ShowServiceTest extends BaseBmmTest {
         Show show = new Show();
         showService.organizeShow(show);
         verify(showRepository,times(1)).save(show);
-        when(showRepository.get(any(Predicate.class))).thenReturn(Optional.of(show));
+        when(showRepository.get(any(Predicate.class))).thenReturn(Arrays.asList(show));
         Show actual = showService.getShow(show.getShowId());
         assertEquals(show.getShowId(),actual.getShowId());
     }

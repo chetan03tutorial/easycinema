@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Matchers;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -43,7 +44,7 @@ public class EventServiceTest extends BaseBmmTest {
     @Test
     public void get_auditorium_details(){
         Event expected  = new Event.EventBuilder("The Technical Vertios","Movie").build();
-        when(eventRepository.get(any(Predicate.class))).thenReturn(Optional.of(expected));
+        when(eventRepository.get(any(Predicate.class))).thenReturn(Arrays.asList(expected));
         Event actual = eventService.getEventDetails((long)1000);
         assertEquals(actual.getName(),expected.getName());
     }
